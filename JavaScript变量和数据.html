@@ -5,10 +5,64 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JavaScript是弱类型数据语言,所有数据都可以相加</title>
-    <!--  -->
+    <!-- JavaScript有6种数据类型 -->
+    <!-- 5种基本数据类型
+        1.number 数字类
+        2.string 字符串类型
+        3.boolean 布尔类型
+        4. undefined 变量声明未初始化
+        5. null null类型 表示空对象，页面上获取不到对象，返回就是null        
+    -->
+    <!-- 1种复合类型
+        1.object后面学习的javaScript对象属于复合类型
+     -->
+         <!-- 匈牙利命名风格
+        对象o oDiv
+        字符串s sDiv
+        整数型i
+        布尔值b
+        浮点数f
+        函数fn
+    -->
+     <script>
+        // 1 数字 number
+        var iNum = 5;
+        var fNum = 10.1;
+        var sMu = "20";
+        // 对象类型
+        var oDuixiang = {
+            name: "张三",
+            age : 12
+        }
+        // 获取变量类型
+        alert(typeof(iNum))
+        alert(typeof(fNum))
+        alert(typeof sMu)
+        alert(typeof oDuixiang)
+        console.log(oDuixiang.name)
+        console.log(oDuixiang.age)
+
+
+
+        //函数定义
+        function fnAlter(){
+            alert('你好')
+        }
+
+        fnAlter()
+
+        //定义带参数的函数
+        function fnSum(iNumber1,iNumber2){
+            var iRs = iNumber1 + iNumber2;
+            return iRs;
+        }
+        alert(fnSum(1,2));
+
+     </script>
 
 </head>
 <body>
+
     
 </body>
 </html>
