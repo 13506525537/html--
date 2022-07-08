@@ -1,0 +1,73 @@
+<!-- 文档声明：html5文档声明 -->
+<!DOCTYPE html>
+<!-- 页面显示语言为英文 -->
+<html lang="en">
+<head>
+    <!-- 编码格式 -->
+    <meta charset="UTF-8">
+    <!-- 当使用IE浏览时，默认使用最高版本浏览器 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 当移动设备浏览时不进行缩放 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style_css.css">
+</head>
+
+<body>
+    <!-- 显示网页内容 -->
+    <h1>hello</h1>
+    <!-- 无序列表标签 -->
+    <ul>
+        <li>苹果</li>
+        <li>鸭梨</li>
+    </ul>
+    <!-- 有序列表标签 -->
+    <ol>
+        <li>苹果</li>
+        <li>鸭梨</li>
+    </ol>
+
+    <!-- 表格标签 -->
+    <table style="border: 1px solid black;"  >
+        <tr>
+            <th style="border: 1px solid black;">姓名</th>
+            <th style="border: 1px solid black;">年龄</th>
+        </tr>
+        <tr>
+            <td style="border: 1px solid black;">张三</td>
+            <td style="border: 1px solid black;">李四</td>
+        </tr>
+    </table>
+
+    <form action="https://www.baidu.com" method="post">
+        <label for="账户">账户:</label>
+        <input type="text" name="username">
+        <br>
+        <label for="密码">密码:</label>
+        <input type="password" name="password">
+        <br>
+
+        <label>性别:</label>
+        <input type="radio" name="gender" value="0">男
+        <input type="radio" name="gender" value="1">女
+        <br>
+
+        <label>爱好:</label>
+        <input type="checkbox" name="hobit" value="eat" id="1">吃饭
+        <input type="checkbox" name="hobit" value="sleep" id="2">睡觉
+        <br>
+        
+        <label>照片:</label>
+        <input type="file" name="file" id="f1">
+        <br>
+        <label>地址</label>
+        <select name="addr" >
+            <option value="1">北京</option>
+            <option value="2">上海</option>
+        </select>
+        <br>
+
+        <input type="submit" name="submit" id="">
+    </form>
+</body>
+</html>
