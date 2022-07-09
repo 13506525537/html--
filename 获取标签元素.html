@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>获取标签元素</title>
+    <script>
+        //定义函数方便调用
+        function fnLoad(){
+            var oBtn = document.getElementById('btn');
+            alert(oBtn)
+        }
+        
+        //onload事件: 页面加载完毕后触发
+        //window.onload = fnLoad;
+        //工作中写法
+        //被动事件用这个，主动事件写在input里
+        window.onload = function(){
+            //匿名函数
+            fnLoad()
+           }
+    </script>
+</head>
+<body>
+    <input type="button" value="按钮" id="btn" onclick="fnLoad()">
+</body>
+</html>
