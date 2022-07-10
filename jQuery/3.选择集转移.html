@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        prev() 表示获取上一个同级元素
+        prevAll() 表示获取上面所有同级元素
+        next() 表示获取下一个同级元素
+        nextAll() 表示获取下面所有同级元素
+        parent() 表示获取父元素
+        children() 表示获取子元素
+        siblings() 表示获取同级元素
+        find("选择器名称") 表示获取指定选择器元素 
+    -->
+
+    <script src="./jquery-1.12.4.min.js"></script>
+    <script>
+        $(function(){
+            // 获取标签对象
+            var $mydiv = $("#div");
+            var $result = $mydiv.parent().children().css({"color":"red"})
+        })
+    </script>
+</head>
+<body>
+<div>
+    sdsa
+    <h1>这是另一个标签</h1>
+</div>
+<div>
+    <h2>这是第一个标签</h2>
+    <p>这是第二个标签</p>
+    <div id="div">这是<span>第三个</span>标签</div>
+    <h2>这是第四个标签</h2>
+    <p>这是第五个标签</p>
+</div>
+    
+</body>
+</html>

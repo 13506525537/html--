@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>天气查询</title>
+    <script src="./jquery-1.12.4.min.js"></script>
+    <script>
+        function searchWether(){
+            // 获取城市输入值
+            var $city = $("#input-text").val()
+
+            $.ajax({
+            // url
+            url : 'https://www.tianqiapi.com/api',
+
+            // type 请求方式
+            type : "GET",
+            
+            // 数据返回格式
+            dataType : "json",
+
+            // 请求数据
+            data : "city="+$city,
+
+            // success
+            success:function(response){
+                $("#city").text(response.city)
+                $("#weather").text("多云")
+                console.log(response)
+            },
+
+            // error
+            error:function(result){
+                console.log("请求失败，请重新请求")
+                console.log(result)
+            },
+
+            // asyne 设置是否异步,默认为异步true，可不写
+            async:true
+
+
+        });
+        };
+       
+    </script>
+</head>
+<body>
+    <h1>天气查询</h1>
+    <input type="text" id="input-text">
+    <input type="button" value="查询" onclick="searchWether()">
+    <h3>查询结果</h3>
+    <ul>
+        <li>城市：<span id="city"></span></li>
+        <li>天气：<span id="weather"></span></li>
+    </ul>
+</body>
+</html>

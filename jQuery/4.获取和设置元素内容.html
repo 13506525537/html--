@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <script src="./jquery-1.12.4.min.js"></script>
+    
+    <script>
+        // 获取元素标签
+        $(function(){
+            var $myp = $("p")
+            // 获取标签内容
+            var $text = $myp.html();
+            alert($text)
+            // 修改标签的内容
+            $myp.html("黑马")
+            // 追加内容
+            $myp.append("heima")
+            
+        })
+
+        // 设置元素属性
+            // 使用css方法可以给标签设置样式属性
+            $(function(){
+                var $myp = $("p")
+                // 获取标签样式
+                var $mypx = $myp.css("font-size")
+                alert($mypx)
+                // 设置标签样式
+                $myp.css({"color":"blue"})
+            })
+
+            // 使用prop方法设置标签其他属性，value可以用.val()来便捷设置
+            function fnClick(){
+                var $btn = $("#btn")
+                if ($btn.val() == "确定"){
+                    $btn.prop({"value": "取消"})
+                }
+                else{
+                    $btn.prop({"value": "确定"}) 
+                }
+                
+            }
+    </script>
+</head>
+<body>
+    <p>哈哈哈</p>
+    <input type="button" value="确定" id="btn" onclick="fnClick()">
+</body>
+</html>

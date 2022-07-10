@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p{
+            width: 150px;
+            height: 100px;
+            background: rosybrown;
+        }
+        #greenDiv{
+            font-size: large;
+            color: blue;
+        }
+        .bigFont{
+            font-size: 200px;
+            color:  green;
+        }
+    </style>
+    <script src="./jquery-1.12.4.min.js"></script>
+    <script>
+        // jQuery选择器
+        // 1.标签选择器  $("#myId"）
+        $(function(){
+            var $myp = $("#p1");
+            alert($myp.length);
+            $myp.addClass("bigFont")
+
+
+
+        })
+        // 2.类选择器   $(".myClass")
+        // 3.id选择器   $("li")
+        // 4.层级选择器 $("#ul1 li span")
+        // 5.属性选择器 $("input[name=first]")
+    </script>
+</head>
+<body>
+    <p id="p1">itcast</p>
+    <div id="greenDiv">小绿格子</div>
+</body>
+</html>
