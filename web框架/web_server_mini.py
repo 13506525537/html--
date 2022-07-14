@@ -1,6 +1,6 @@
 import socket
 import threading
-from dynamic.frame import Application
+from dynamic.frame_luyou import Application
 
 
 # 获取用户请求路径
@@ -45,7 +45,25 @@ class HttpWebServer():
         if request_path.endswith(".html"):
             """动态资源"""
             application = Application()
-            application.application(request_path)
+            # 应答体
+            r = application.application(request_path)
+            if r == "error 404":
+                # 没有查询到文件返回404
+                # 应答行
+                response_line = "HTTP/1.1 404 Not Found\r\n"
+                # 应答头
+                request_header = "Server:pwb\r\n"
+            else:
+                # 应答行
+                response_line = "HTTP/1.1 200 OK\r\n"
+                # 应答头
+                request_header = "Server:pwb\r\n"
+
+            # 应答数据
+            response_data = (response_line + request_header + "\r\n" + r).encode()
+            client_socket.send(response_data)
+            client_socket.close()
+
 
         else:
             # 根据请求的路径返回页面
