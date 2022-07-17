@@ -1,0 +1,7 @@
+2022-07-17 16:09:55,774 - web_server_mini.py[line:53] - INFO: 动态资源/index.html
+2022-07-17 16:09:55,835 - web_server_mini.py[line:78] - INFO: 静态资源/jquery-1.12.4.min.js
+2022-07-17 16:10:01,070 - web_server_mini.py[line:53] - INFO: 动态资源/login.html
+2022-07-17 16:10:01,370 - web_server_mini.py[line:78] - INFO: 静态资源/jquery-1.12.4.min.js
+2022-07-17 16:10:01,716 - web_server_mini.py[line:53] - INFO: 动态资源/center_data.html
+2022-07-17 16:10:06,791 - web_server_mini.py[line:78] - INFO: 静态资源/login.22ml
+2022-07-17 16:10:06,791 - web_server_mini.py[line:85] - ERROR: 访问错误[Errno 2] No such file or directory: './static/login.22ml'

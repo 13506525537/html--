@@ -1,7 +1,13 @@
 import socket
 import threading
-from dynamic.frame_luyou import Application
+from dynamic.frame06 import Application
+import logging
 
+logging.basicConfig(level=logging.DEBUG,
+                    format='%(asctime)s - %(filename)s[line:%(lineno)d] - %(levelname)s: %(message)s',
+                    filename='Log/log.txt',
+                    filemode='w',
+                    )
 
 # 获取用户请求路径
 # 根据请求资源路径，读取指定文件数据
@@ -44,6 +50,8 @@ class HttpWebServer():
 
         if request_path.endswith(".html"):
             """动态资源"""
+            logging.info("动态资源" + request_path)
+
             application = Application()
             # 应答体
             r = application.application(request_path)
@@ -52,12 +60,12 @@ class HttpWebServer():
                 # 应答行
                 response_line = "HTTP/1.1 404 Not Found\r\n"
                 # 应答头
-                request_header = "Server:pwb\r\n"
+                request_header = "Content-Type: text/html;charset=utf-8\r\n"
             else:
                 # 应答行
                 response_line = "HTTP/1.1 200 OK\r\n"
                 # 应答头
-                request_header = "Server:pwb\r\n"
+                request_header = "Content-Type: text/html;charset=utf-8\r\n"
 
             # 应答数据
             response_data = (response_line + request_header + "\r\n" + r).encode()
@@ -66,17 +74,20 @@ class HttpWebServer():
 
 
         else:
+
+            logging.info("静态资源" + request_path)
             # 根据请求的路径返回页面
             try:
                 with open("./static" + request_path, "rb") as f:
                     file_data = f.read()
 
             except Exception as e:
+                logging.error("访问错误" + str(e))
                 # 没有查询到文件返回404
                 # 应答行
                 response_line = "HTTP/1.1 404 Not Found\r\n"
                 # 应答头
-                request_header = "Server:pwb\r\n"
+                request_header = "Content-Type: text/html;charset=utf-8\r\n"
                 # 应答体
                 request_body = "404 Not Found sorry"
 
@@ -88,7 +99,7 @@ class HttpWebServer():
                 # 应答行
                 response_line = "HTTP/1.1 200 OK\r\n"
                 # 应答头
-                request_header = "Server:pwb\r\n"
+                request_header = "Content-Type: text/html;charset=utf-8\r\n"
                 # 应答体
                 request_body = file_data
 

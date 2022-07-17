@@ -1,3 +1,7 @@
+###
+# 页面模板和请求数据分离
+import json
+
 import pymysql
 
 
@@ -9,6 +13,7 @@ class Application:
         self.func_list = {}
         self.func_list["/index.html"] = "index"
         self.func_list["/login.html"] = "login"
+        self.func_list["/center_data.html"] = "center_data"
 
     def route(data):
         """路由装饰器"""
@@ -42,7 +47,6 @@ class Application:
     def index(self):
         with open("./dynamic/index.html", "r", encoding="utf-8") as f:
             result = f.read()
-
         sql = "select * from info;"
         stock_data = self.read_mysql(sql)
         template = """<tr>
@@ -66,6 +70,30 @@ class Application:
         result = result.replace("{%content%}", html, 1)
         return result
 
+    # 返回股票数据
+    def center_data(self):
+
+        sql = "select " \
+              "info.`code`,info.short, info.chg,info.turnover,info.price,info.highs,info.time,foucs.message " \
+              "from info join foucs on info.id = foucs.id;"
+        stock_data = self.read_mysql(sql)  # 数据库返回元组
+
+        # 元组转成json格式
+        center_data_list = [{
+            "code": row[0],
+            "short": row[1],
+            "chg": row[2],
+            "turnover": str(row[3]),
+            "price": str(row[4]),
+            "highs": str(row[5]),
+            "time": str(row[6]),
+            "message": row[7],
+        } for row in stock_data]
+
+        # 生产JSON格式字符串
+        json_str = json.dumps(center_data_list)
+        return json_str
+
     # @route("/login.html")
     def login(self):
         with open("./dynamic/login.html", "r", encoding="utf-8") as f:
@@ -84,8 +112,3 @@ class Application:
                 return re()
         except Exception as e:
             return self.error()
-
-
-if __name__ == '__main__':
-    a = Application()
-    a.read_mysql()
