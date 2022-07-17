@@ -18,13 +18,11 @@ class Application:
     def route(data):
         """路由装饰器"""
 
-        def func_out(func):
-            def func_inner(self):
-                self.func_list[data] = func
-                func(self)
-
+        def func_out(self,func):
+            self.func_list[data] = func
+            def func_inner():
+                func()
             return func_inner
-
         return func_out
 
     def read_mysql(self, sql):
