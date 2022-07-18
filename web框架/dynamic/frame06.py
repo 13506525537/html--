@@ -4,26 +4,30 @@ import json
 
 import pymysql
 
+func_list = {}
+
+
+def route(path):
+    def outer(func):
+        func_list[path] = func.__name__
+
+        def inner(self, *args, **kwargs):
+            return func(self, *args, **kwargs)
+
+        return inner
+
+    return outer
+
 
 class Application:
     """动态业务处理"""
 
     def __init__(self):
         # 初始路由列表
-        self.func_list = {}
-        self.func_list["/index.html"] = "index"
-        self.func_list["/login.html"] = "login"
-        self.func_list["/center_data.html"] = "center_data"
-
-    def route(data):
-        """路由装饰器"""
-
-        def func_out(self,func):
-            self.func_list[data] = func
-            def func_inner():
-                func()
-            return func_inner
-        return func_out
+        pass
+        # self.func_list["/index.html"] = "index"
+        # self.func_list["/login.html"] = "login"
+        # self.func_list["/center_data.html"] = "center_data"
 
     def read_mysql(self, sql):
         # 连接数据库进行数据替换
@@ -41,7 +45,7 @@ class Application:
         connect.close()
         return stock_data
 
-    # @route("/index.html")
+    @route("/index.html")
     def index(self):
         with open("./dynamic/index.html", "r", encoding="utf-8") as f:
             result = f.read()
@@ -92,7 +96,7 @@ class Application:
         json_str = json.dumps(center_data_list)
         return json_str
 
-    # @route("/login.html")
+    @route("/login.html")
     def login(self):
         with open("./dynamic/login.html", "r", encoding="utf-8") as f:
             result = f.read()
@@ -102,9 +106,9 @@ class Application:
         return "error 404"
 
     def application(self, request_path):
-        print(self.func_list)
+        print(func_list)
         try:
-            func = self.func_list[request_path]
+            func = func_list[request_path]
             re = getattr(self, func)
             if re:
                 return re()
