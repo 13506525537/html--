@@ -27,9 +27,12 @@ if __name__ == '__main__':
 
     # 2. 创建进程类进程对象
     sing_process = multiprocessing.Process(target=sing, args=("张三",))  # args以元组形式传参,元组传参需要按照顺序
-    dance_process = multiprocessing.Process(target=dance,
-                                            kwargs={"name": "李四", "count": 4})  # kwargs 以字典形式传参，需要注意参数名字就是字典的key
-    # 3. 启用进程执行任务
+    dance_process = multiprocessing.Process(target=dance,kwargs={"name": "李四", "count": 4})  # kwargs 以字典形式传参，需要注意参数名字就是字典的key
+
+    # 设置子线程守护主线程 主进程结束，子进程自动销毁
+    sing_process.daemon = True
+    dance_process.daemon = True
+    # 3. 启用进程执行任务】
     sing_process.start()
     dance_process.start()
 
@@ -38,3 +41,6 @@ if __name__ == '__main__':
     print("主进程下的",os.getpid())
     ### 2. 获取当前父进程编号
     print("主进程下的父进程",os.getppid())
+
+    time.sleep(1)
+    print("主进程结束")
