@@ -38,9 +38,9 @@ if __name__ == '__main__':
 
     # 4.获取进程编号
     ### 1. 获取当前进程编号
-    print("主进程下的",os.getpid())
+    print("主进程下的pid",os.getpid())
     ### 2. 获取当前父进程编号
-    print("主进程下的父进程",os.getppid())
+    print("主进程下的父进程ppid",os.getppid())
 
     time.sleep(1)
     print("主进程结束")
