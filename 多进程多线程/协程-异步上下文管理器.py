@@ -25,3 +25,7 @@ async def func():
         print(result)
 
 asyncio.run(func())
+
+
+# 可以在最前面加上, 能将asynico默认循环替换为uvloop循环，提升效率
+# asyncio.set_event_loop_policy(uvloop.EventLoopPolicy())
