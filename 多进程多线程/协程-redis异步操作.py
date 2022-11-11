@@ -14,6 +14,6 @@ async def execute(address):
 
 
 if __name__ == '__main__':
-    task_list=[execute("redis://localhost/0"), execute("redis://localhost/0")]
+    task_list=[execute("redis://172.168.98.100/0"), execute("redis://localhost/0")]
     a = asyncio.run(asyncio.wait(task_list))
     print(a)
