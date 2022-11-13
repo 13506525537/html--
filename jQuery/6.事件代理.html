@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        事件代理利用事件冒泡原理（事件冒泡会像他的父级一级一级传递），把事件加到父级上可以通过判断事件来源，执行相应的子元素操作
+        好处：减少事件绑定量，新增的子元素不用重新绑定
+     -->
+
+     <script src="./jquery-1.12.4.min.js"></script>
+     <script>
+        // 事件代理使用delegate(childSelector,event,function)
+        //childSelector 子选择器
+        // event 事件
+        //function 当事件被执行时的函数
+
+        // 一般写法：
+        // $(function(){
+        //     var $myul = $("ul")
+        //     var $myli = $("ul li")
+        //     $myli.click(function(){
+        //         $(this).css({"background": "red"})
+        //     })
+        // })
+        
+
+        // 父级代理写法
+        $(function(){
+            var $myul = $("ul")
+            $myul.delegate("li","click",function(){
+                $(this).css({"background":"blue"})
+            })
+        })
+
+     </script>
+</head>
+<body>
+    <div id="div1" style="width:200px; height:200px; background: rgb(81, 173, 248);">
+        <div id="div2" style="background: green;">
+            itcast
+        </div>
+    </div>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    
+</body>
+</html>

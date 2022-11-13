@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>伪类选择器</title>
+    <style>
+        #mydiv{
+            color: yellow;
+        }
+        /* 组选择器以 , 分割开，公共样式可以选择组选择器 */
+        .box1, .box2, .box3{
+            width: 200px;
+            height: 200px;
+            background: black;
+        }
+        .box1:hover{
+            background: bisque;
+        }
+        .box2:hover{
+            background: yellow;
+        }
+        .box3:hover{
+            background: green;
+        }
+
+
+        /* 伪类选择器 */
+        .box4{
+            width: 200px;
+            height: 200px;
+            background: blue;
+        }
+        .box4:hover{
+            width: 200px;
+            height: 200px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="mydiv">iteast</div>
+    <div class="box1"> </div>
+    <div class="box2"> </div>
+    <div class="box3"> </div>
+    <div class="box4"></div>
+</body>
+</html>

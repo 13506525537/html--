@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        JSON格式 
+        1.对象格式
+            {
+                "name" : "tom",
+                "age" : 18
+            }
+            所有属性名称和字符串的值都要用双引号引起来
+
+        2.数组格式
+        ["tom", 18, "programmer"]
+        使用中括号括起来
+
+        在浏览器中用 JSON.parse()将json字符串转化成对象
+
+     -->
+     <script>
+        // 对象格式的json数据
+        var sJson1 = '{"name":"张三", "age": 18}';
+        // 数组格式的数据
+        var sJson2 = '[{"name":"老王", "age" : 18}, {"name":"laoli","age":19}]';
+
+        var oPerson = JSON.parse(sJson1);
+        console.log(oPerson.name);
+
+        var aArray = JSON.parse(sJson2)
+        console.log(aArray[1].name)
+     </script>
+
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 定时器的两种创建方式
+        // 1. setTimeout(func[,delay, param1, param2]) 以指定事件间隔调用一次一个函数(时间结束调用一下)
+        // clearTimeout(timeoutID)清除定时器
+        // function fnShow(name){
+        //     alert(name);
+        //     // 消除定时器
+        //     clearTimeout(tId)
+        // }
+
+        // var tId = setTimeout(fnShow,2000, "Maurice");
+
+        // 2. setInterval(func[,delay, param1, param2) 以指定的事件间隔重复调用一个函数
+        // clearInterval(timeoutID)清除定时器
+        function fnShow(name){
+            alert(name)
+        }
+
+        function fnStop(){
+            clearInterval(tId)
+        }
+
+        var tId = setInterval(fnShow, 2000, "task")
+
+    </script>
+</head>
+<body>
+    <input type="button" value="暂停" onclick="fnStop()">
+    
+</body>
+</html>

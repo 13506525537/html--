@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery-1.12.4.min.js"></script>
+    <script>
+         function fnClick(mybtn){
+            if (mybtn.val() == "确定"){
+                    mybtn.prop({"value": "取消"})
+                }
+                else{
+                    mybtn.prop({"value": "确定"}) 
+                }     
+        }
+        
+        $(function(){
+            var $mytext = $("#text1")
+            var $mybtn = $("#btn1")
+            // click()鼠标点击
+            $mybtn.click(function(){
+                fnClick($(this))
+            })
+
+            // blur() 元素失去焦点
+            // focus() 元素获得焦点
+            $mybtn.mouseover(function(){
+                $(this).css({"background":"blue"})
+            })
+            $mybtn.mouseout(function(){
+                $(this).css({"background":"white"})
+            })
+            // mouseover() 鼠标进入（进入子元素也触发）
+            // mouseout() 鼠标离开 (离开子元素也出发)
+
+        })
+        
+
+
+        // ready() DOM加载完成触发
+        $(function(){
+            alert("页面加载完成")
+        })
+       
+    </script>
+</head>
+<body>
+    <input type="text" id="text1">
+    <input type="button" value="确定" id="btn1">
+    
+</body>
+</html>

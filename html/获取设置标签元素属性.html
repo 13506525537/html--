@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .btnstyle{
+            background: green;
+        }
+    </style>
+    <script>
+        function fnLoad(){
+            //获取标签对象
+            var oBtn = document.getElementById("btn"); 
+            //alert(oBtn.style.background);
+            if (oBtn.style.background == "red"){
+            //修改标签属性
+            oBtn.value = "绿灯行";
+            //alert(oBtn.value);
+            //修改样式属性
+            oBtn.style.background = "green";
+            }
+            else{
+               //alert("执行到这里");
+               oBtn.value = "红灯停"
+                oBtn.style.background = "red"
+            }
+        
+        }
+
+
+        //1.html的属性和js里面属性大多数写法一样，但是"class"属性写成 "className"
+        //2."style"属性里面的属性，有横杠的改成驼峰式，比如："font-size"改成"style.fontSIze"
+
+    </script>
+</head>
+<body>
+    <input type="button" value="按钮" id="btn" onclick="fnLoad()" style="background: red;">
+</body>
+</html>

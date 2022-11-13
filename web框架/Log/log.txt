@@ -1,0 +1,12 @@
+2022-07-18 22:26:28,877 - web_server_mini.py[line:53] - INFO: 动态资源/index.html
+2022-07-18 22:26:28,953 - web_server_mini.py[line:78] - INFO: 静态资源/jquery-1.12.4.min.js
+2022-07-18 22:26:35,103 - web_server_mini.py[line:53] - INFO: 动态资源/index.html
+2022-07-18 22:26:35,184 - web_server_mini.py[line:78] - INFO: 静态资源/jquery-1.12.4.min.js
+2022-07-18 22:26:37,945 - web_server_mini.py[line:53] - INFO: 动态资源/login.html
+2022-07-18 22:26:37,981 - web_server_mini.py[line:78] - INFO: 静态资源/jquery-1.12.4.min.js
+2022-07-18 22:26:38,209 - web_server_mini.py[line:53] - INFO: 动态资源/center_data.html
+2022-07-18 22:26:45,019 - web_server_mini.py[line:53] - INFO: 动态资源/login.html
+2022-07-18 22:26:45,051 - web_server_mini.py[line:78] - INFO: 静态资源/jquery-1.12.4.min.js
+2022-07-18 22:26:45,266 - web_server_mini.py[line:53] - INFO: 动态资源/center_data.html
+2022-07-18 22:26:47,110 - web_server_mini.py[line:53] - INFO: 动态资源/index.html
+2022-07-18 22:26:47,156 - web_server_mini.py[line:78] - INFO: 静态资源/jquery-1.12.4.min.js

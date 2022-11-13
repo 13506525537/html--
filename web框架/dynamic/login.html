@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+    <style>
+        #welcom1{
+            padding-right: 500px;
+            padding-left: 500px;
+            text-align: center;
+
+        }
+        #title{
+            height: 50px;
+            background-color: black;
+            color: white;
+            text-align: center;
+            font-size: large;
+            line-height: 50px;
+        }
+        #table{
+            text-align: center;
+
+        }
+        table{
+            width: 100%;
+        }
+
+    </style>
+    <script src="/jquery-1.12.4.min.js"></script>
+    <script>
+        $(function(){
+            //获取元素
+            var $oStockInfo = $("#stockInfo")
+            $oStockInfo.click(function(){
+             //点击跳转
+                url = "/index.html";
+                location.href=url
+            })
+
+            // ajax请求center_data数据
+            $.get("/center_data.html",function(center_data){
+                // 获取到json字符串，json对象
+
+                // 定位table元素
+                var $mytable = $("#table");
+
+                for( var i = 0; i < center_data.length;i++){
+                    var oCenterData = center_data[i];
+                    console.log(i)
+                    console.log(oCenterData)
+                    // 封装后的每一个tr标签
+                    var oTr = '<tr style="width: 100%;">' +
+                '<td>'+ oCenterData.code +'</td>'+
+                '<td>'+ oCenterData.short +'</td>'+
+                '<td>'+ oCenterData.chg +'</td>'+
+                '<td>'+ oCenterData.turnover +'</td>'+ 
+                '<td>'+ oCenterData.price +'</td>'+ 
+                '<td>'+ oCenterData.highs +'</td>'+   
+                '<td>'+ oCenterData.time +'</td>'+ 
+                '<td>'+ oCenterData.message +'</td>'+
+                '<td><input type="button" value="删除" id="toAdd" name="toAdd" systemidvalue="000007"></td>'+
+                '</tr>'
+                $mytable.append(oTr)
+                }
+                
+                
+            },"json")
+
+        })
+    </script>
+</head>
+<body>
+    <div id="welcom1">
+    <h1>欢迎来到李沐筱之家</h1>
+    <!-- <input type="button" value="登录" id="login">
+    &nbsp;&nbsp;&nbsp;&nbsp;     
+    <input type="button" value="退出" id="exit"> -->
+    </div>
+    <div id="title">
+        <span>选股系统</span>&nbsp;&nbsp;       <span id="stockInfo">股票信息</span>&nbsp;&nbsp;       <span id="loginInfo">个人中心</span>
+    </div>
+    <div>
+        <table id="table">
+            <tr>
+                <th>股票代码</th>
+                <th>股票简称</th>
+                <th>涨跌幅</th>
+                <th>换手率</th>
+                <th>最新价(元)</th>
+                <th>前期高点</th> 
+                <th>前期高点日期</th>
+                <th>备注信息</th>
+                <th>删除自选</th>
+            </tr>
+        </table>
+    </div>
+    
+</body>
+</html>

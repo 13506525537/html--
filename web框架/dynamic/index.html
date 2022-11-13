@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+    <style>
+        #welcom1{
+            padding-right: 500px;
+            padding-left: 500px;
+            text-align: center;
+
+        }
+        #title{
+            height: 50px;
+            background-color: black;
+            color: white;
+            text-align: center;
+            font-size: large;
+            line-height: 50px;
+        }
+        #table{
+            text-align: center;
+
+        }
+        table{
+            width: 100%;
+        }
+
+    </style>
+    <script src="/jquery-1.12.4.min.js"></script>
+    <script>
+        $(function(){
+            //获取元素
+            var $sLoginInfo = $("#loginInfo")
+            $sLoginInfo.click(function(){
+             //点击跳转
+                url = "/login.html";
+                location.href=url
+            })
+
+        })
+    </script>
+</head>
+<body>
+    <div id="welcom1">
+    <h1>欢迎来到李沐筱之家</h1>
+    <!-- <input type="button" value="登录" id="login">
+    &nbsp;&nbsp;&nbsp;&nbsp;     
+    <input type="button" value="退出" id="exit"> -->
+    </div>
+    <div id="title">
+        <span>选股系统</span>&nbsp;&nbsp;       <span>股票信息</span>&nbsp;&nbsp;       <span id="loginInfo">个人中心</span>
+    </div>
+    <div id="table">
+        <table>
+            <tr>
+                <th>序号</th>   <th>股票代码</th>   <th>股票简称</th>   <th>涨跌幅</th> <th>换手率</th> <th>最新价(元)</th>   <th>前期高点</th><th>前期高点日期</th><th>添加自选</th>
+            </tr>
+            {%content%}
+        </table>
+    </div>
+    
+</body>
+</html>
